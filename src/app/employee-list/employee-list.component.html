@@ -1,0 +1,42 @@
+<table *ngIf="(employees$ | async) as employees; else loading" mat-table [dataSource]="employees$" class="mat-elevation-z8" style="width: 100%; margin-top: 20px;">
+    
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let employee"> {{employee.name}} </td>
+    </ng-container>
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef> Position </th>
+      <td mat-cell *matCellDef="let employee"> {{employee.position}} </td>
+    </ng-container>
+
+    <!-- Department Column -->
+    <ng-container matColumnDef="department">
+      <th mat-header-cell *matHeaderCellDef> Department </th>
+      <td mat-cell *matCellDef="let employee"> {{employee.department}} </td>
+    </ng-container>
+
+    <!-- Actions Column -->
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let employee">
+        <button mat-button class="edit-btn" (click)="updateEmployee(employee)">Edit</button>
+        <button mat-button class="del-btn" (click)="deleteEmployee(employee.id)">Delete</button>
+      </td>
+    </ng-container>
+ 
+    <!-- Table Header and Rows -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+<ng-template #loading>
+    <p>Loading employees...</p>
+</ng-template>
+
+<ng-template #noEmployees>
+    <p>No employees found.</p>
+</ng-template>
+

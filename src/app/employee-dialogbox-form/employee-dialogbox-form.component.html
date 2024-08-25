@@ -1,0 +1,24 @@
+<div mat-dialog-content class="dialog-container">
+  <form class="dialog-container__form" [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+    <mat-form-field class="input-full-width" appearance="fill">
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name">
+    </mat-form-field>
+
+    <mat-form-field class="input-full-width" appearance="fill">
+      <mat-label>Position</mat-label>
+      <input matInput formControlName="position">
+    </mat-form-field>
+
+    <mat-form-field class="input-full-width" appearance="fill">
+      <mat-label>Department</mat-label>
+      <input matInput formControlName="department">
+    </mat-form-field>
+
+    <div mat-dialog-actions class="dialog-actions">
+      <button mat-raised-button color="primary" type="submit">Save</button>
+      <button mat-button type="button" (click)="onCancel()">Cancel</button>
+    </div>
+    
+  </form>
+</div>
