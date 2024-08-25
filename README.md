@@ -1,3 +1,5 @@
+Node version `22.5.1`
+Angular cli `18.2.1`
 # EmployeeManagementAppV01
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.1.
